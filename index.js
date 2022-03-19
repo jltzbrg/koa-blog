@@ -1,32 +1,25 @@
 require("dotenv").config();
 const koa = require("koa");
-
 const port = process.env.PORT || 3001;
 const server = new koa();
 const static = require("koa-static");
 const Router = require("koa-router");
+const route = new Router();
 const views = require("koa-views");
 const nunj = require("nunjucks");
 nunj.configure("./views", { autoescape: true });
-const route = new Router();
+
+server.use(views("./views", { map: { html: "nunjucks" } }));
 
 // Routes
-//route.get("/", (ctx, next) => (ctx.body = "Hola Mundo"));
 route.get("/", (ctx, next) => {
-  return ctx.render("./index.html", {
+  return ctx.render("./index", {
     name: "Julio Litzenberg",
   });
 });
 
-route.get("/:name/:age", (ctx, next) => {
-  return ctx.render("./index.html", {
-    name: ctx.params.name,
-    age: ctx.params.age,
-  });
-});
-
-server.use(views("./views", { map: { html: "nunjucks" } }));
 server.use(route.routes());
+server.use(route.allowedMethods());
 server.use(static("./public"));
 
 server.listen(port, () => {
