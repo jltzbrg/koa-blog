@@ -1,0 +1,21 @@
+{
+  "name": "koa-blog",
+  "version": "1.0.0",
+  "description": "A simple Koa api app ",
+  "main": "index.js",
+  "repository": "https://github.com/jltzbrg/koa-blog.git",
+  "author": "Julio Litzenberg",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "koa": "^2.13.4",
+    "koa-router": "^10.1.1",
+    "koa-static": "^5.0.0"
+  },
+  "scripts": {
+    "server": "nodemon index.js"
+  }
+}
