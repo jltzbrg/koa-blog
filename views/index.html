@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Koa Blog</title>
+    {% include './includes/head.njk' %}
   </head>
   <body>
-    <h1>Hola my name is {{ name }} and {{ age }} years old.</h1>
+    <header>{% include './includes/header.njk' %}</header>
+    <h1 class="text-3xl font-bold underline">
+      Hola my name is {{ name }} and {{ age }} years old.
+    </h1>
+    <footer>{% include './includes/footer.njk' %}</footer>
   </body>
 </html>

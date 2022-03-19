@@ -6,7 +6,8 @@ const server = new koa();
 const static = require("koa-static");
 const Router = require("koa-router");
 const views = require("koa-views");
-
+const nunj = require("nunjucks");
+nunj.configure("./views", { autoescape: true });
 const route = new Router();
 
 // Routes
